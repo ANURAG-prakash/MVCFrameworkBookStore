@@ -134,6 +134,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="Controllers\BooksController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -186,6 +187,7 @@
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Books\AllBooks.cshtml" />
     <Content Include="Views\Order\Orderconfirm.cshtml" />
+    <Content Include="Views\Cart\CartBooks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

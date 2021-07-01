@@ -9,22 +9,21 @@ using System.Threading.Tasks;
 
 namespace RepositoryLayer.Services
 {
-    public class BookRL : IBookRL
+    public class CartRL : ICartRL
     {
         private SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=webform_bookstore;Integrated Security=True");
-        public BookRL()
-        {
 
-        }
-        public List<BookModel> GetAllBooks()
+      
+
+        public List<GetCart> CartBooks()
         {
-            List<BookModel> BookList = new List<BookModel>();
+            List<GetCart> BookList = new List<GetCart>();
 
             try
             {
                 using (Connection)
                 {
-                    string query = @"select * from [dbo].[BookModel]";
+                    string query = @"select * from [dbo].[CartModel]";
                     SqlCommand command = new SqlCommand(query, Connection);
                     Connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
@@ -32,15 +31,16 @@ namespace RepositoryLayer.Services
                     {
                         while (dr.Read())
                         {
-                            BookList.Add(new BookModel
+                            BookList.Add(new GetCart
                             {
-                                BookId = Convert.ToInt32(dr["id"]),
-                                BookName = Convert.ToString(dr["BookName"]),
-                                Price = Convert.ToInt32(dr["Price"]),
-                                Category = Convert.ToString(dr["Category"]),
-                                Authors = Convert.ToString(dr["Authors"]),
-                                Arrivals = Convert.ToDateTime(dr["Arrival"]),
-                                AvailabeBooks = Convert.ToInt32(dr["Avaliablebook"])
+                                BookId = 1,
+                                BookName = "Harry potter",
+                                Price = 1500,
+                                Authors = "J K Rowlin",
+                                CartId = 1,
+                                UserId = 1,
+                                Quantity = 1
+
                             }
                         );
                         }
@@ -49,6 +49,7 @@ namespace RepositoryLayer.Services
             }
             catch (Exception ex)
             {
+
                 throw ex;
             }
             finally
