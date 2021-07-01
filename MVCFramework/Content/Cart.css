@@ -1,0 +1,196 @@
+﻿.Whole-Cart {
+    display: flex;
+    flex-direction: column;
+    /* align-items: baseline; */
+    /* justify-content: center; */
+    align-items: center;
+    margin: 40px;
+    min-height: 73vh;
+}
+
+.one-Cart {
+    display: flex;
+    padding: 10px 10% 20px 10%;
+}
+
+.Cart-Container {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    /* padding: 10px 10% 20px 13%; */
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    padding: 25px;
+    border: 1px solid #cfcfcf;
+    margin-bottom: 20px
+}
+
+.Container2 {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+    /* padding: 10px 10% 20px 13%; */
+    display: flex;
+    flex-direction: column;
+    width: 800px;
+    padding: 25px;
+    border: 1px solid #cfcfcf;
+    margin-bottom: 20px
+}
+
+.Title {
+    padding: 10px 10% 20px 10%;
+    font-size: 20px;
+}
+
+.First-container {
+    display: flex;
+    padding: 0px 10% 0px 8%;
+}
+
+.Second-part-new {
+    padding: 20px;
+}
+
+.BookName {
+    padding: 5px;
+}
+
+.Author {
+    padding: 5px;
+    font-size: x-small;
+    color: #808080b8;
+}
+
+.Price {
+    padding: 5px;
+}
+
+.Quantity {
+    padding: 25px 5px 5px 5px;
+}
+
+.openDetails {
+    width: 800px;
+    padding: 25px;
+    border: 1px solid #cfcfcf;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px
+}
+
+.takeinput {
+    display: flex;
+    flex-direction: column;
+}
+
+.giveinput {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px 20px 10px 30px;
+}
+
+.InputFields1 {
+    padding: 10px 0 0 20px;
+}
+
+.InputFields2 {
+    padding: 10px 0 0 20px;
+}
+
+.InputFields3 {
+    padding: 10px 0 0 20px;
+}
+
+.InputFields4 {
+    padding: 10px 0 0 20px;
+}
+
+.InputField {
+    padding: 10px 0 0 20px;
+}
+
+.Address {
+    padding: 20px;
+}
+
+#TB_Name {
+    width: 230px !important;
+    height: 35px !important;
+}
+
+#TB_Phone {
+    width: 230px !important;
+    height: 35px !important;
+}
+
+#TB_Pin {
+    width: 230px !important;
+    height: 35px !important;
+}
+
+#TB_Locality {
+    width: 230px !important;
+    height: 35px !important;
+}
+
+#TB_Address {
+    width: 470px !important;
+    height: 65px !important;
+}
+
+#TB_City {
+    width: 230px !important;
+    height: 35px !important;
+}
+
+#TB_Landmark {
+    width: 230px !important;
+    height: 35px !important;
+}
+
+.Type {
+    padding: 20px;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: row;
+    align-content: baseline;
+    padding: 10px 200px 20px 10px;
+    justify-content: space-evenly;
+}
+
+.Place-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+#btn_opendetails {
+    background-color: #6a7fbe !important;
+    color: white !important;
+    border-color: white !important;
+    width: 120px !important;
+    height: 30px !important;
+}
+
+#btn_Continue {
+    background-color: #6a7fbe !important;
+    color: white !important;
+    border-color: white !important;
+    width: 120px !important;
+    height: 30px !important;
+}
+
+#btn_Placeorder {
+    background-color: #6a7fbe !important;
+    color: white !important;
+    border-color: white !important;
+    width: 120px !important;
+    height: 30px !important;
+}
+
+.left {
+    margin-left: 50px;
+}

@@ -13,7 +13,10 @@ namespace RepositoryLayer.Services
     {
         private SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=webform_bookstore;Integrated Security=True");
 
-      
+        public CartRL()
+        {
+
+        }
 
         public List<GetCart> CartBooks()
         {
@@ -33,14 +36,12 @@ namespace RepositoryLayer.Services
                         {
                             BookList.Add(new GetCart
                             {
-                                BookId = 1,
-                                BookName = "Harry potter",
-                                Price = 1500,
-                                Authors = "J K Rowlin",
-                                CartId = 1,
-                                UserId = 1,
-                                Quantity = 1
-
+                                BookId = Convert.ToInt32(dr["BookId"]),
+                                Price = Convert.ToInt32(dr["Price"]),
+                                CartId =  Convert.ToInt32(dr["id"]),
+                                UserId = Convert.ToInt32(dr["UserId"]),
+                                Quantity = Convert.ToInt32(dr["Quantity"]),
+                              
                             }
                         );
                         }

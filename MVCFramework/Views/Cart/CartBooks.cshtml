@@ -18,15 +18,15 @@
                 {
 
                     <div class="one-Cart">
-                        <div class="First-part">
+                        <div class="First-part-new">
                             <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
                                  class="card-img-top"
                                  alt="..." style="width:100px ; height:130px ; padding: 10px 20px 10px 0px;" />
                         </div>
-                        <div class="Second-part">
-                            <div>@items.BookName</div>
-                            <div>@items.Authors</div>
-                            <div class="price">Rs.@items.Price</div>
+                        <div class="Second-part-new">
+                            <div>Harry potter</div>
+                            <div>J K rowlin</div>
+                            <div class="price">Rs.1500</div>
 
                             <div class="Quantity">  <input type="number" id="quantity" name="quantity" min="1" max="99" /></div>
                         </div>
@@ -88,31 +88,28 @@
         <div class="Container2" runat="server" id="Container2">
             <div class="First-box">
                 <div class="Title">Order Summery</div>
-                <asp:Repeater ID="Repeater1" runat="server">
+                @foreach (var items in Model)
+                {
 
-                    <ItemTemplate>
-
-                        <div class="one-Cart">
-                            <div class="First-part">
-                                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                     class="card-img-top"
-                                     alt="..." style="width:100px ; height:130px ; padding: 10px 20px 10px 0px;" />
-                            </div>
-                            <div class="Second-part">
-                                <div class="BookName">Source of Dream </div>
-                                <div class="Author"> By R.K </div>
-                                <div class="Price"> Rs. <%#DataBinder.Eval(Container,"DataItem.Price")%> </div>
-
-                            </div>
+                    <div class="one-Cart">
+                        <div class="First-part-new">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                                 class="card-img-top"
+                                 alt="..." style="width:100px ; height:130px ; padding: 10px 20px 10px 0px;" />
                         </div>
+                        <div class="Second-part-new">
+                            <div>Harry Potter</div>
+                            <div>J K Rowlin</div>
+                            <div class="price">Rs.1500</div>
+
+                            <div class="Quantity">  <input type="number" id="quantity" name="quantity" min="1" max="99" /></div>
+                        </div>
+                    </div>
 
 
-                    </ItemTemplate>
-
-
-                </asp:Repeater>
+                }
                 <div class="Place-button">
-                    <asp:Button ID="btn_Placeorder" runat="server" Text="Place Order" OnClick="btn_Placeorder_Click" />
+                    <input id="btn_opendetails" type="button" value="Place Order" />
                 </div>
             </div>
         </div>
