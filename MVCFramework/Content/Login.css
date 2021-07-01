@@ -1,0 +1,169 @@
+﻿.Header-class {
+    padding-left: 0;
+}
+
+.Conatiner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    border-style: solid;
+    border-color: #d5cfcf;
+    border-radius: 0.5px;
+    padding: 2% 2% 2% 2%;
+}
+
+.container.body-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Conatiner-login {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding:3%;
+}
+
+h2 {
+    font-size: 20px !important;
+}
+
+h3 {
+    font-size: 14px !important;
+    font-family: sans-serif !important;
+}
+
+.Continer-Registation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.container.body-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#Btn_First {
+    background-color: #ca1e1e !important;
+    color: white !important;
+    padding: 6px 12px 6px 12px;
+    border-radius: 5px !important;
+}
+
+.Button1 {
+}
+
+#Btn_Second {
+    background-color: #ca1e1e !important;
+    color: white !important;
+    padding: 6px 12px 6px 12px;
+    border-radius: 5px !important;
+}
+
+.Button2 {
+    padding-top: 5%;
+}
+
+.ForgotPassword {
+    padding: 5% 0 5% 0;
+    color: #08d;
+    font-size: small;
+}
+
+.ConfirmPassword {
+    padding: 5% 0 0 0;
+    font-size: small;
+}
+
+.Password {
+    padding: 5% 0 0 0;
+    font-size: small;
+}
+
+.Email {
+    padding: 5% 0 0 0;
+    font-size: small;
+}
+
+.FirstName {
+    padding: 5% 0 0 0;
+    font-size: small;
+}
+
+.LastName {
+    padding: 5% 0 0 0;
+    font-size: small;
+}
+
+.v1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid grey;
+    height: 450px;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+}
+
+#TB_Email {
+    width: 120% !important;
+    height: 22px !important;
+}
+
+#TB_Password {
+    width: 120% !important;
+    height: 22px !important;
+}
+
+#TB_Firstname {
+    width: 120% !important;
+    height: 22px !important;
+}
+
+#TB_Lastname {
+    width: 120% !important;
+    height: 22px !important;
+}
+
+#MainContent_TB_Email2 {
+    width: 120% !important;
+    height: 22px !important;
+}
+
+#TB_Password {
+    width: 120% !important;
+    height: 22px !important;
+}
+
+#TB_Conpassword {
+    width: 120% !important;
+    height: 22px !important;
+}
+
+.Conatiner-main {
+    margin-bottom: 2% !important;
+    min-height: 71vh;
+}
+
+#RegularExpressionValidator1 {
+    top: 43%;
+    left: 27%;
+    position: absolute;
+    height: 22px;
+    width: 177px
+}
+
+.Large-Container {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}

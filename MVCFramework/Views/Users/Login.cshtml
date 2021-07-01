@@ -1,0 +1,47 @@
+﻿@model CommonLayer.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="Conatiner-main">
+        <div class="Header-class">
+            <h1>
+                My Account
+            </h1>
+        </div>
+        <div class="Large-Container">
+            <div class="Conatiner">
+                <div class="Conatiner-login">
+                    <h2>Existing Customer</h2>
+                    <h3>If you already have an account, please sign in for faster checkout.</h3>
+
+                    <div class="Email">Your Email Address:</div>
+                    <div>
+                        <input id="TB_Email" type="text" />
+                    </div>
+                    <div class="Password">Password:</div>
+                    <div>
+
+                        <input id="TB_Password" type="text" />
+                    </div>
+                    <div class="ForgotPassword">
+                        <a href="https://localhost:44368/Pages/User/Forgetpassword">Forgot Password ?</a>
+                    </div>
+                    <div class="Button1">
+                        <input id="Btn_First" type="button" value="Log-In" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

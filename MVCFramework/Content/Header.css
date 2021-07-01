@@ -1,0 +1,93 @@
+﻿body {
+    margin: 0px !important;
+}
+
+.Bookstore-Register {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.navbar-header {
+    padding: 10px 10% 10px 10%;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background: #A03037 0% 0% no-repeat padding-box;
+    opacity: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.Bookstore-title {
+    display: flex;
+    flex-direction: row;
+    width: 91px;
+    height: 26px;
+    margin-left: 5px;
+    text-align: left;
+    font: normal normal normal 20px/26px Roboto;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: capitalize;
+    opacity: 1;
+    font-size: x-large;
+}
+
+#TextBox1 {
+    display: flex;
+    width: 600px;
+    height: 33px;
+    background: #FCFCFC 0% 0% no-repeat padding-box;
+    border-radius: 3px;
+    opacity: 1;
+}
+
+.Bookstore-Cart {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.Bookstore-Register {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+footer {
+    padding-top: 10px;
+    padding-left: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50px;
+    background: #2E1D1E 0% 0% no-repeat padding-box;
+    opacity: 1;
+    margin-top: 21px;
+}
+
+.text {
+    color: white;
+    margin-left: 163px;
+    display: flex;
+    justify-content: center;
+}
+
+.Bookstore-book {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.bi bi-book-fill {
+    color: white !important;
+}

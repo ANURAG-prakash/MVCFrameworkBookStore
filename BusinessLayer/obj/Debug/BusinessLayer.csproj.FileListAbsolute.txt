@@ -1,0 +1,11 @@
+D:\MVCFramework\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\MVCFramework\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\MVCFramework\BusinessLayer\bin\Debug\CommonLayer.dll
+D:\MVCFramework\BusinessLayer\bin\Debug\RepositoryLayer.dll
+D:\MVCFramework\BusinessLayer\bin\Debug\CommonLayer.pdb
+D:\MVCFramework\BusinessLayer\bin\Debug\RepositoryLayer.pdb
+D:\MVCFramework\BusinessLayer\obj\Debug\BusinessLayer.csprojAssemblyReference.cache
+D:\MVCFramework\BusinessLayer\obj\Debug\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\MVCFramework\BusinessLayer\obj\Debug\BusinessLayer.csproj.CopyComplete
+D:\MVCFramework\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\MVCFramework\BusinessLayer\obj\Debug\BusinessLayer.pdb

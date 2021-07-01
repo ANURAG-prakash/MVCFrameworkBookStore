@@ -1,0 +1,9 @@
+D:\MVCFramework\RepositoryLayer\bin\Debug\RepositoryLayer.dll
+D:\MVCFramework\RepositoryLayer\bin\Debug\RepositoryLayer.pdb
+D:\MVCFramework\RepositoryLayer\bin\Debug\CommonLayer.dll
+D:\MVCFramework\RepositoryLayer\bin\Debug\CommonLayer.pdb
+D:\MVCFramework\RepositoryLayer\obj\Debug\RepositoryLayer.csprojAssemblyReference.cache
+D:\MVCFramework\RepositoryLayer\obj\Debug\RepositoryLayer.csproj.CoreCompileInputs.cache
+D:\MVCFramework\RepositoryLayer\obj\Debug\RepositoryLayer.csproj.CopyComplete
+D:\MVCFramework\RepositoryLayer\obj\Debug\RepositoryLayer.dll
+D:\MVCFramework\RepositoryLayer\obj\Debug\RepositoryLayer.pdb

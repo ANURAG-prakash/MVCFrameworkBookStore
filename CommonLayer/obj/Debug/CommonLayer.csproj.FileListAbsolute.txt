@@ -1,0 +1,6 @@
+D:\MVCFramework\CommonLayer\bin\Debug\CommonLayer.dll
+D:\MVCFramework\CommonLayer\bin\Debug\CommonLayer.pdb
+D:\MVCFramework\CommonLayer\obj\Debug\CommonLayer.csprojAssemblyReference.cache
+D:\MVCFramework\CommonLayer\obj\Debug\CommonLayer.csproj.CoreCompileInputs.cache
+D:\MVCFramework\CommonLayer\obj\Debug\CommonLayer.dll
+D:\MVCFramework\CommonLayer\obj\Debug\CommonLayer.pdb
