@@ -4,7 +4,7 @@
     ViewBag.Title = "CartBooks";
 }
 
-<h2>CartBooks</h2>
+
 
 @using (Html.BeginForm())
 {
@@ -13,7 +13,7 @@
     <div class="Whole-Cart">
         <div class="Cart-Container">
             <div class="First-box">
-                <div class="Title">My Cart</div>
+                <div class="cart-Title">My Cart</div>
                 @foreach (var items in Model)
                 {
 
@@ -62,7 +62,7 @@
                     <div class="Type">
                         Type :
                     </div>
-                    <div class="Buttons">
+                    <div class="cart-Buttons">
                         <div class="Home">
                             <input id="RB_Home" type="radio" />
 
@@ -117,6 +117,4 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

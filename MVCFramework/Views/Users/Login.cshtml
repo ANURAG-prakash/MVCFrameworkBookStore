@@ -13,7 +13,7 @@
 
     <div class="Conatiner-main">
         <div class="Header-class">
-            <h1>
+            <h1 style="margin-left:35%;">
                 My Account
             </h1>
         </div>
@@ -23,20 +23,27 @@
                     <h2>Existing Customer</h2>
                     <h3>If you already have an account, please sign in for faster checkout.</h3>
 
-                    <div class="Email">Your Email Address:</div>
-                    <div>
-                        <input id="TB_Email" type="text" />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                        </div>
                     </div>
-                    <div class="Password">Password:</div>
-                    <div>
 
-                        <input id="TB_Password" type="text" />
+                    <div class="form-group" style="display: flex; flex-direction: column;">
+                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
                     </div>
                     <div class="ForgotPassword">
                         <a href="https://localhost:44368/Pages/User/Forgetpassword">Forgot Password ?</a>
                     </div>
                     <div class="Button1">
-                        <input id="Btn_First" type="button" value="Log-In" />
+                        <input id="Btn_First" type="submit" value="Log-In" />
                     </div>
                 </div>
             </div>

@@ -45,12 +45,13 @@
     <Compile Include="Interfaces\IBookRL.cs" />
     <Compile Include="Interfaces\ICartRL.cs" />
     <Compile Include="Interfaces\IUserRL.cs" />
+    <Compile Include="Interfaces\IWishlistRL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookRL.cs" />
     <Compile Include="Services\CartRL.cs" />
     <Compile Include="Services\UserRL.cs" />
+    <Compile Include="Services\WishlistRL.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\CommonLayer\CommonLayer.csproj">
       <Project>{4DDD6A97-285B-4441-9646-78178AFE7EF6}</Project>

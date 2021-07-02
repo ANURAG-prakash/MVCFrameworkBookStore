@@ -44,10 +44,12 @@
     <Compile Include="Interfaces\IBookBL.cs" />
     <Compile Include="Interfaces\ICartBL.cs" />
     <Compile Include="Interfaces\IUserBL.cs" />
+    <Compile Include="Interfaces\IWishlistBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BookBL.cs" />
     <Compile Include="Services\CartBL.cs" />
     <Compile Include="Services\UserBL.cs" />
+    <Compile Include="Services\WishlistBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CommonLayer\CommonLayer.csproj">

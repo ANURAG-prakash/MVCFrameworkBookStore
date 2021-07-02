@@ -29,8 +29,10 @@ namespace RepositoryLayer.Services
 
                 Connection();
 
-                SqlCommand cmd = new SqlCommand("spLogin", connection);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("spLogin", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
                 cmd.Parameters.AddWithValue("@Email", loginModel.Email);
                 cmd.Parameters.AddWithValue("@Password", loginModel.Password);
 

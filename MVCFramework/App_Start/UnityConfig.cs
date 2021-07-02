@@ -25,6 +25,8 @@ namespace MVCFramework
             container.RegisterType<IBookRL, BookRL>();
             container.RegisterType<ICartRL, CartRL>();
             container.RegisterType<ICartBL, CartBL>();
+            container.RegisterType<IWishlistRL, WishlistRL>();
+            container.RegisterType<IWishlistBL, WishlistBL>();
 
 
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));

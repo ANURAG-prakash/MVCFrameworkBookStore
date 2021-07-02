@@ -28,7 +28,8 @@
 }
 
 h2 {
-    font-size: 20px !important;
+    font-size: 30px !important;
+    margin-left: 24%;
 }
 
 h3 {
@@ -166,4 +167,9 @@ h3 {
     display: flex;
     align-content: center;
     justify-content: center;
+}
+.form-control text-box single-line {
+    height: 20px !important;
+    width: 200px !important;
+
 }

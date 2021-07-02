@@ -37,7 +37,7 @@
     margin-bottom: 20px
 }
 
-.Title {
+.cart-Title {
     padding: 10px 10% 20px 10%;
     font-size: 20px;
 }
@@ -153,7 +153,7 @@
     padding: 20px;
 }
 
-.Buttons {
+.cart-Buttons {
     display: flex;
     flex-direction: row;
     align-content: baseline;
@@ -170,6 +170,12 @@
 #btn_opendetails {
     background-color: #6a7fbe !important;
     color: white !important;
+    border-color: white !important;
+    width: 120px !important;
+    height: 30px !important;
+}
+#btn_opendetails {
+   
     border-color: white !important;
     width: 120px !important;
     height: 30px !important;
@@ -193,4 +199,19 @@
 
 .left {
     margin-left: 50px;
+}
+
+.Trash-part {
+    display: flex;
+    /* align-items: center; */
+    justify-content: flex-end;
+    margin-left: 375px;
+    padding-top: 20px;
+
+}
+
+.Place-button-new {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
