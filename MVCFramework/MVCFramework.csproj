@@ -155,6 +155,7 @@
     <Content Include="Content\Header.css" />
     <Content Include="Content\Login.css" />
     <Content Include="Content\OrderPage.css" />
+    <Content Include="Content\Register.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -191,6 +192,7 @@
     <Content Include="Views\Order\Orderconfirm.cshtml" />
     <Content Include="Views\Cart\CartBooks.cshtml" />
     <Content Include="Views\Wishlist\WishlistBooks.cshtml" />
+    <Content Include="Views\Users\Register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

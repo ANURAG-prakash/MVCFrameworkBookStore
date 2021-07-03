@@ -21,6 +21,11 @@ namespace MVCFramework.Controllers
             return View();
         }
 
+        public ActionResult Register()
+        {
+            return View();
+        }
+
 
 
         [HttpPost]
@@ -30,19 +35,35 @@ namespace MVCFramework.Controllers
             {
                 var result = this.userManager.LoginUser(login);
                 ViewBag.Message = "User login successfull";
-                // return View();
-                if (result == true)
-                {
-                    return RedirectToAction("AllBooks");
-                }
-                else
-                {
-                    return RedirectToAction("Login");
-                }
+                //  return Redirect("https://localhost:44301/Books/AllBooks");
+                return View();
+
+
+
+            }
+            catch (Exception )
+            {
+                ViewBag.Message = "User login unsuccessfull";
+                // return Redirect("https://localhost:44301/Users/Login");
+                return View();
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult Register(RegistationModel register)
+        {
+            try
+            {
+                var result = this.userManager.RegisterUser(register);
+                 ViewBag.Message = "User registered successfully";
+                return Redirect("https://localhost:44301/Users/Login");
+
+
             }
             catch (Exception)
             {
-                return ViewBag.Message = "User login unsuccessfull";
+                return Redirect("https://localhost:44301/Users/Register");
             }
         }
 

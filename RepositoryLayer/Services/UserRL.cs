@@ -15,30 +15,33 @@ namespace RepositoryLayer.Services
     {
         private SqlConnection connection;
 
-        private void Connection()
-        {
-            string connectionString = ConfigurationManager.ConnectionStrings["UserDbConnection"].ConnectionString;
-            connection = new SqlConnection(connectionString);
+        /*  private void Connection()
+          {
+              string connectionString = ConfigurationManager.ConnectionStrings["UserDbConnection"].ConnectionString;
+              connection = new SqlConnection(connectionString);
 
-        }
+          }*/
+
+       
+        private readonly SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=webform_bookstore;Integrated Security=True");
 
         public bool LoginUser(LoginModel loginModel)
         {
             try
             {
 
-                Connection();
+               
 
-                SqlCommand cmd = new SqlCommand("spLogin", connection)
+                SqlCommand cmd = new SqlCommand("spLogin", Connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@Email", loginModel.Email);
                 cmd.Parameters.AddWithValue("@Password", loginModel.Password);
 
-                connection.Open();
+                Connection.Open();
                 int i = cmd.ExecuteNonQuery();
-                connection.Close();
+                Connection.Close();
                 if (i <= 1)
                     return true;
                 else
@@ -50,7 +53,7 @@ namespace RepositoryLayer.Services
             }
             finally
             {
-                connection.Close();
+                Connection.Close();
             }
         }
 
@@ -58,7 +61,48 @@ namespace RepositoryLayer.Services
 
         public bool RegisterUser(RegistationModel registrationModel)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (Connection)
+                {
+                   
+                    SqlCommand command = new SqlCommand("sp_insertintoregister", Connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Firstname", registrationModel.FirstName);
+                    command.Parameters.AddWithValue("@Lastname", registrationModel.LastName);
+                    command.Parameters.AddWithValue("@Email", registrationModel.Email);
+                    command.Parameters.AddWithValue("@Password", registrationModel.Password);
+
+                    Connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            if (dr["Email"].ToString() == registrationModel.Email && dr["Password"].ToString() == registrationModel.Password)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No data found.");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Connection.Close();
+
+            }
+            return false;
         }
 
        
