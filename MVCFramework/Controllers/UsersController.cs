@@ -35,8 +35,8 @@ namespace MVCFramework.Controllers
             {
                 var result = this.userManager.LoginUser(login);
                 ViewBag.Message = "User login successfull";
-                //  return Redirect("https://localhost:44301/Books/AllBooks");
-                return View();
+                return Redirect("https://localhost:44301/Books/AllBooks");
+               
 
 
 
@@ -44,8 +44,8 @@ namespace MVCFramework.Controllers
             catch (Exception )
             {
                 ViewBag.Message = "User login unsuccessfull";
-                // return Redirect("https://localhost:44301/Users/Login");
-                return View();
+                return Redirect("https://localhost:44301/Users/Login");
+                
             }
         }
 

@@ -11,7 +11,7 @@ namespace RepositoryLayer.Services
 {
     public class CartRL : ICartRL
     {
-        private SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=webform_bookstore;Integrated Security=True");
+        private SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=bookstore;Integrated Security=True");
 
         public CartRL()
         {

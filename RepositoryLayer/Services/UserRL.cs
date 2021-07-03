@@ -23,7 +23,7 @@ namespace RepositoryLayer.Services
           }*/
 
        
-        private readonly SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=webform_bookstore;Integrated Security=True");
+        private readonly SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=bookstore;Integrated Security=True");
 
         public bool LoginUser(LoginModel loginModel)
         {
