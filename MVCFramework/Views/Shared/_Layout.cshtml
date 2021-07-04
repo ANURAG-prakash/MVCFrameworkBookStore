@@ -31,8 +31,8 @@
                     </div>
                 </div>
                 <div class="Bookstore-searchbar">
-                  
-                    <input id="TextBox1" type="text" placeholder="Search"/>
+
+                    <input id="TextBox1" type="text" placeholder="Search" />
                 </div>
                 <div class="Bookstore-Cart">
                     cart
@@ -58,18 +58,21 @@
             </div>
         </div>
     </div>
-    <div >
+    <div>
         @RenderBody()
     </div>
     <footer>
         <div class="text">
-            Copyright &copy;2020, BookStore Private Limited.All Rights Reserved
+            Copyright &copy;@DateTime.Now.Year, BookStore Private Limited.All Rights Reserved
         </div>
     </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/JavaScript/Books.js")
     @RenderSection("scripts", required: false)
+
+   
 
 </body>
 </html>

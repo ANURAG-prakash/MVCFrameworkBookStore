@@ -17,6 +17,12 @@ namespace BusinessLayer.Services
         {
             this.book = book;
         }
+
+        public CartModel AddToCart(CartModel cartModel)
+        {
+            return this.book.AddToCart(cartModel);
+        }
+
         public List<BookModel> GetAllBooks()
         {
             return this.book.GetAllBooks();

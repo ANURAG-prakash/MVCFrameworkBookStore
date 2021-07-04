@@ -13,7 +13,7 @@ namespace RepositoryLayer.Services
 {
     public class UserRL : IUserRL
     {
-        private SqlConnection connection;
+       
 
         /*  private void Connection()
           {
@@ -30,22 +30,27 @@ namespace RepositoryLayer.Services
             try
             {
 
-               
 
-                SqlCommand cmd = new SqlCommand("spLogin", Connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
+                
+                SqlCommand cmd = new SqlCommand("spLogin");
                 cmd.Parameters.AddWithValue("@Email", loginModel.Email);
                 cmd.Parameters.AddWithValue("@Password", loginModel.Password);
-
+                cmd.CommandType = CommandType.StoredProcedure;
                 Connection.Open();
-                int i = cmd.ExecuteNonQuery();
-                Connection.Close();
-                if (i <= 1)
+                cmd.Connection = Connection;
+                SqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+
                     return true;
+                }
                 else
-                    return false;
+                {
+                    return false ;
+                }
+
+              
             }
             catch (Exception ex)
             {

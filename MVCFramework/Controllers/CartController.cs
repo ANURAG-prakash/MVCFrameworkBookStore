@@ -41,5 +41,26 @@ namespace MVCFramework.Controllers
                 throw ex;
             }
         }
+        [HttpPost]
+        public JsonResult Placeorder(List<CartModel> cart)
+        {
+            try
+            {
+                var result = this.cartManager.Placeorder();
+                if (result != false)
+                {
+                    
+                    return Json(new { status = true, Message = "Orderplace done", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Problem with orderplacing", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

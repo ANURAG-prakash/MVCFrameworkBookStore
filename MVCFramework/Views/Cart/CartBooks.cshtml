@@ -7,86 +7,87 @@
 
 
 
-    @Html.AntiForgeryToken()
+@Html.AntiForgeryToken()
 
-    <div class="Whole-Cart">
-        <div class="Cart-Container">
-            <div class="First-box">
-                <div class="cart-Title">My Cart</div>
-                @foreach (var items in Model)
-                {
+<div class="Whole-Cart">
+    <div class="Cart-Container">
+        <div class="First-box">
+            <div class="cart-Title">My Cart</div>
+            @foreach (var items in Model)
+            {
 
-                    <div class="one-Cart">
-                        <div class="First-part-new">
-                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
-                                 class="card-img-top"
-                                 alt="..." style="width:100px ; height:130px ; padding: 10px 20px 10px 0px;" />
-                        </div>
-                        <div class="Second-part-new">
-                            <div>Harry potter</div>
-                            <div>J K rowlin</div>
-                            <div class="price">Rs.1500</div>
-
-                            <div class="Quantity">  <input type="number" id="quantity" name="quantity" min="1" max="99" /></div>
-                        </div>
+                <div class="one-Cart">
+                    <div class="First-part-new">
+                        <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg"
+                             class="card-img-top"
+                             alt="..." style="width:100px ; height:130px ; padding: 10px 20px 10px 0px;" />
                     </div>
+                    <div class="Second-part-new">
+                        <div>Harry potter</div>
+                        <div>J K rowlin</div>
+                        <div class="price">Rs.1500</div>
 
-
-                }
-                    <div class="Place-button">
-                        <input id="btn_opendetails" type="button" value="Place Order" />
+                        <div class="Quantity">  <input type="number" id="quantity" name="quantity" min="1" max="99" /></div>
                     </div>
                 </div>
-        </div>
-        <div class="openDetails"  id="openDetails">
-            <div class="left"><strong>Customer Details</strong></div>
-            <div class="takeinput">
-                <div class="giveinput">
-                    <div class="InputFields1">      
-                        <input id="TB_Name" type="text" placeholder="Name"  />
-                        <input id="TB_Phone" type="text" placeholder="Phone Number" />
-                    </div>
-                    <div class="InputFields2">
-                        <input id="TB_Pin" type="text" placeholder="Pin Code" />
-                        <input id="TB_Locality" type="text" placeholder="Locality" />
-                    </div>
-                    <div class="InputFields3">
-                        <asp:TextBox ID="TB_Address" runat="server" placeholder="Address"></asp:TextBox>
-                        <input id="TB_Address" type="text" placeholder="Address" />
-                    </div>
-                    <div class="InputFields4">
-                        <input id="TB_City" type="text" placeholder="City/Locality" />
-                        <input id="TB_Landmark" type="text" placeholder="Landmark" />
-                    </div>
-                    <div class="Type">
-                        Type :
-                    </div>
-                    <div class="cart-Buttons">
-                        <div class="Home">
-                            <input id="RB_Home" type="radio" />
 
-                           
-                            Home
-                        </div>
-                        <div class="Work">
-                            <input id="RB_Work" type="radio" />
-                            Work
-                        </div>
-                        <div class="Other">
-                            <input id="RB_Other" type="radio" />
-                            Other
-                        </div>
-                    </div>
-                </div>
-                <div class="Place-button">
-                    
-                    <input id="btn_Continue" type="button" value="Continue" />
-                </div>
+
+            }
+            <div class="Place-button">
+                <input id="btn_opendetails" type="button" value="Place Order" onclick="PlaceOrderbtn()" />
             </div>
         </div>
-        <div class="Container2" runat="server" id="Container2">
-            <div class="First-box">
-                <div class="Title">Order Summery</div>
+    </div>
+    <div class="openDetails" id="openDetails">
+        <div class="left"><strong>Customer Details</strong></div>
+        <div id="takeinput1" class="takeinput" style="display: none;">
+            <div class="giveinput">
+                <div class="InputFields1">
+                    <input id="TB_Name" type="text" placeholder="Name" />
+                    <input id="TB_Phone" type="text" placeholder="Phone Number" />
+                </div>
+                <div class="InputFields2">
+                    <input id="TB_Pin" type="text" placeholder="Pin Code" />
+                    <input id="TB_Locality" type="text" placeholder="Locality" />
+                </div>
+                <div class="InputFields3">
+                    <asp:TextBox ID="TB_Address" runat="server" placeholder="Address"></asp:TextBox>
+                    <input id="TB_Address" type="text" placeholder="Address" />
+                </div>
+                <div class="InputFields4">
+                    <input id="TB_City" type="text" placeholder="City/Locality" />
+                    <input id="TB_Landmark" type="text" placeholder="Landmark" />
+                </div>
+                <div class="Type">
+                    Type :
+                </div>
+                <div class="cart-Buttons">
+                    <div class="Home">
+                        <input id="RB_Home" type="radio" />
+
+
+                        Home
+                    </div>
+                    <div class="Work">
+                        <input id="RB_Work" type="radio" />
+                        Work
+                    </div>
+                    <div class="Other">
+                        <input id="RB_Other" type="radio" />
+                        Other
+                    </div>
+                </div>
+            </div>
+            <div class="Place-button">
+
+                <input id="btn_Continue" type="button" value="Continue" onclick="Continuebtn()" />
+            </div>
+        </div>
+    </div>
+    <div class="Container2" runat="server" id="Container2">
+        <div class="First-box">
+            <div class="Title">Order Summery</div>
+            <div id="OrderBooks" style="display: none;">
                 @foreach (var items in Model)
                 {
 
@@ -101,19 +102,24 @@
                             <div>J K Rowlin</div>
                             <div class="price">Rs.1500</div>
 
-                           
+
                         </div>
                     </div>
 
 
                 }
                 <div class="Place-button">
-                    <input id="btn_opendetails" type="button" value="Place Order" />
+                    <input id="btn_opendetails" type="button" value="Place Order" onclick="Checkoutbtn()" />
+                </div>
                 </div>
             </div>
         </div>
 
-    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
 
 
 

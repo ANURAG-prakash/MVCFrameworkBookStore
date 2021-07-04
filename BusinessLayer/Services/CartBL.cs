@@ -27,5 +27,17 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+
+        public bool Placeorder()
+        {
+            try
+            {
+                return this.cartRL.Placeorder();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

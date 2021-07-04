@@ -33,5 +33,26 @@ namespace MVCFramework.Controllers
                 var result = this.booksManager.GetAllBooks();
                 return View(result);  
         }
+        [HttpPost]
+        public JsonResult AddToCart(CartModel cart)
+        {
+            try
+            {
+                var result = this.booksManager.AddToCart(cart);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "Book added to cart", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Book not added to cart", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

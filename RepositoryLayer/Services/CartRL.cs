@@ -11,7 +11,7 @@ namespace RepositoryLayer.Services
 {
     public class CartRL : ICartRL
     {
-        private SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=bookstore;Integrated Security=True");
+        private readonly SqlConnection Connection = new SqlConnection(@"Data Source=(localdb)\ProjectsV13;Initial Catalog=bookstore;Integrated Security=True");
 
         public CartRL()
         {
@@ -59,6 +59,36 @@ namespace RepositoryLayer.Services
             }
 
             return BookList;
+        }
+        public bool Placeorder()
+        {
+           
+            try
+            {
+                using (Connection)
+                {
+                    SqlCommand command = new SqlCommand("spCheckout", Connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Email", "Prakash@gmail.com");
+
+                    Connection.Open();
+                    int i = command.ExecuteNonQuery();
+
+                    if (i >= 1)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
         }
     }
 }

@@ -33,20 +33,30 @@ namespace MVCFramework.Controllers
         {
             try
             {
-                var result = this.userManager.LoginUser(login);
-                ViewBag.Message = "User login successfull";
-                return Redirect("https://localhost:44301/Books/AllBooks");
                
-
-
-
-            }
-            catch (Exception )
-            {
-                ViewBag.Message = "User login unsuccessfull";
-                return Redirect("https://localhost:44301/Users/Login");
+                    var result = this.userManager.LoginUser(login);
+                    ViewBag.Message = "User login successfull";
+                    // return View();
+                    if (result == true)
+                    {
+                        return Redirect("https://localhost:44301/Books/AllBooks");
+                    }
+                    else
+                    {
+                        return Redirect("https://localhost:44301/Users/Login");
+                    }
                 
+
+
+
+
+
             }
+            catch (Exception)
+            {
+                return ViewBag.Message = "User login unsuccessfull";
+            }
+           
         }
 
 
