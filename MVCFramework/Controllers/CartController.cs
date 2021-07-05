@@ -49,7 +49,7 @@ namespace MVCFramework.Controllers
                 var result = this.cartManager.Placeorder();
                 if (result != false)
                 {
-                    
+                    RedirectToAction("AllBooks", "Books");
                     return Json(new { status = true, Message = "Orderplace done", Data = result });
                 }
                 else
