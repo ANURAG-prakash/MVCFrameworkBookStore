@@ -38,7 +38,8 @@ namespace RepositoryLayer.Services
                                 Price = Convert.ToInt32(dr["Price"]),
                                 WishlistId = Convert.ToInt32(dr["id"]),
                                 UserId = Convert.ToInt32(dr["UserId"]),
-                                BookName = Convert.ToString(dr["BookName"]),
+                                Quantity= Convert.ToInt32(dr["Quantity"]),
+                                BookName = Convert.ToString("Source of Dream"),
                             }
 
                                 

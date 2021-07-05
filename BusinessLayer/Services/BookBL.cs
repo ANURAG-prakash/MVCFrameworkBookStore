@@ -23,6 +23,11 @@ namespace BusinessLayer.Services
             return this.book.AddToCart(cartModel);
         }
 
+        public WishlistModel AddToWishlist(WishlistModel wishlistModel)
+        {
+            return this.book.AddToWishlist(wishlistModel);
+        }
+
         public List<BookModel> GetAllBooks()
         {
             return this.book.GetAllBooks();

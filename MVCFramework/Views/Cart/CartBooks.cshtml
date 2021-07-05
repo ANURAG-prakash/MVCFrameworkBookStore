@@ -12,7 +12,7 @@
 <div class="Whole-Cart">
     <div class="Cart-Container">
         <div class="First-box">
-            <div class="cart-Title">My Cart</div>
+            <div class="cart-Title">My Cart(@Model.Sum(b => b.Quantity))</div>
             @foreach (var items in Model)
             {
 
@@ -23,9 +23,9 @@
                              alt="..." style="width:100px ; height:130px ; padding: 10px 20px 10px 0px;" />
                     </div>
                     <div class="Second-part-new">
-                        <div>Harry potter</div>
-                        <div>J K rowlin</div>
-                        <div class="price">Rs.1500</div>
+                        <div>@items.BookName</div>
+                        
+                        <div class="price">@items.Price</div>
 
                         <div class="Quantity">  <input type="number" id="quantity" name="quantity" min="1" max="99" /></div>
                     </div>
@@ -98,9 +98,9 @@
                                  alt="..." style="width:100px ; height:130px ; padding: 10px 20px 10px 0px;" />
                         </div>
                         <div class="Second-part-new">
-                            <div>Harry Potter</div>
-                            <div>J K Rowlin</div>
-                            <div class="price">Rs.1500</div>
+                            <div>@items.BookName</div>
+                           
+                            <div class="price">@items.Price</div>
 
 
                         </div>

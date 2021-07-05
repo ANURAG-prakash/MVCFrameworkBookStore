@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CommonLayer.Models
 {
-    public class Wishlist
+    public class WishlistModel
     {
         [Key]
         [Required]

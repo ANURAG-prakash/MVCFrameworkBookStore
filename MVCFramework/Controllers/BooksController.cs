@@ -54,5 +54,26 @@ namespace MVCFramework.Controllers
             }
         }
 
+        [HttpPost]
+        public JsonResult AddToWishlist(WishlistModel cart)
+        {
+            try
+            {
+                var result = this.booksManager.AddToWishlist(cart);
+                if (result != null)
+                {
+                    return Json(new { status = true, Message = "Book added to Wishlist", Data = result });
+                }
+                else
+                {
+                    return Json(new { status = false, Message = "Book not added to Wishlist", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

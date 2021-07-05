@@ -2,7 +2,7 @@
 
     var addToCartId = "addtoCartBtn-".concat(bookId);
     var addToWishId = "wishlistBtn-".concat(bookId);
-    var addedToCart = "addedtocartBtn-".concat(bookId);
+    var addedToCartId = "addedtocartBtn-".concat(bookId);
 
     var requestObject = {};
     requestObject.UserId = 1;
@@ -25,7 +25,7 @@
             AddToWishListButton.style.display = "none";
 
             //Onclick AddToCart button show AddedToCart button
-            var AddedToCartButton = document.getElementById(addedToCart);
+            var AddedToCartButton = document.getElementById(addedToCartId);
             AddedToCartButton.style.display = "block"
             // alert("Data has been added successfully.");  
 
@@ -94,10 +94,14 @@ function Checkoutbtn() {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function () {
-            //Success 
+           
         },
         error: function () {
             alert("Error while inserting data");
         }
     });
 }
+
+$(document).ready(function () {
+    $('.dropdown-toggle').dropdown();
+});

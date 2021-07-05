@@ -67,7 +67,7 @@ namespace RepositoryLayer.Services
                     SqlCommand cmd = new SqlCommand("spAddtocart", Connection);
                     cmd.CommandType = System.Data.CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@bookId", cartModel.BookId);
-                    cmd.Parameters.AddWithValue("@userId", 11);
+                    cmd.Parameters.AddWithValue("@userId", 1);
                     cmd.Parameters.AddWithValue("@quantity", cartModel.CartBookQuantity);
                     cmd.Parameters.AddWithValue("@price", 1500);
                     cmd.Parameters.AddWithValue("@email", "Prakash@gmail.com");
@@ -76,6 +76,38 @@ namespace RepositoryLayer.Services
 
                     if (i >= 1)
                         return cartModel;
+                    else
+                        return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
+
+        public WishlistModel AddToWishlist(WishlistModel wishlistModel)
+        {
+            try
+            {
+                using (Connection)
+                {
+                    SqlCommand cmd = new SqlCommand("spAddtowishlist", Connection);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@bookId", wishlistModel.BookId);
+                    cmd.Parameters.AddWithValue("@userId", 1);
+                    cmd.Parameters.AddWithValue("@quantity", wishlistModel.Quantity);
+                    cmd.Parameters.AddWithValue("@price", 1500);
+                    cmd.Parameters.AddWithValue("@email", "Prakash@gmail.com");
+                    Connection.Open();
+                    int i = cmd.ExecuteNonQuery();
+
+                    if (i >= 1)
+                        return wishlistModel;
                     else
                         return null;
                 }
