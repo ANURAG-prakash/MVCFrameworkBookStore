@@ -94,10 +94,10 @@ function Checkoutbtn() {
         dataType: "json",
         contentType: "application/json; charset=utf-8",
         success: function () {
-           
+            window.location='../Order/Orderconfirm'
         },
         error: function () {
-            alert("Error while inserting data");
+            alert("Wrong input data");
         }
     });
 }

@@ -49,14 +49,15 @@ namespace MVCFramework.Controllers
                 var result = this.cartManager.Placeorder();
                 if (result != false)
                 {
-                   
-                    return Json(new { status = true, Message = "Orderplace done", Data = result });
+                    RedirectToAction("Orderconfirm", "Order");
+                    return Json(new { code=1});
                 }
                 else
                 {
-                    return Json(new { status = false, Message = "Problem with orderplacing", Data = result });
+                    return Json(new { status = false, Message = "Checkout problem", Data = result });
                 }
             }
+            
             catch (Exception ex)
             {
                 throw ex;
