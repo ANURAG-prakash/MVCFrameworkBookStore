@@ -25,9 +25,13 @@ namespace RepositoryLayer.Services
                 using (Connection)
                 {
                     string query = @"select * from [dbo].[BookModel]";
+                   
+
                     SqlCommand command = new SqlCommand(query, Connection);
+                   
                     Connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
+                   
                     if (dr.HasRows)
                     {
                         while (dr.Read())
@@ -40,7 +44,8 @@ namespace RepositoryLayer.Services
                                 Category = Convert.ToString(dr["Category"]),
                                 Authors = Convert.ToString(dr["Authors"]),
                                 Arrivals = Convert.ToDateTime(dr["Arrival"]),
-                                AvailabeBooks = Convert.ToInt32(dr["Avaliablebook"])
+                                AvailabeBooks = Convert.ToInt32(dr["Avaliablebook"]),
+                                Image= Convert.ToString(dr["Image"]),
                             }
                         );
                         }

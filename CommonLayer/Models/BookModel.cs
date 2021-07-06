@@ -24,5 +24,7 @@ namespace CommonLayer.Models
         public DateTime Arrivals { get; set; }
         [Required]
         public int AvailabeBooks { get; set; }
+        [Required]
+        public string Image { get; set; }
     }
 }

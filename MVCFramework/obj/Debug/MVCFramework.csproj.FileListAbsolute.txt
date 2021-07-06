@@ -91,3 +91,7 @@ D:\MVCFramework\MVCFramework\bin\System.Threading.Tasks.Extensions.dll
 D:\MVCFramework\MVCFramework\bin\System.Runtime.CompilerServices.Unsafe.xml
 D:\MVCFramework\MVCFramework\bin\Unity.Abstractions.pdb
 D:\MVCFramework\MVCFramework\bin\Unity.Container.pdb
+D:\MVCFramework\MVCFramework\bin\EntityFramework.dll
+D:\MVCFramework\MVCFramework\bin\EntityFramework.SqlServer.dll
+D:\MVCFramework\MVCFramework\bin\EntityFramework.xml
+D:\MVCFramework\MVCFramework\bin\EntityFramework.SqlServer.xml
