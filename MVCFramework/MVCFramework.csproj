@@ -155,6 +155,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assert\Image1.png" />
+    <Content Include="Assert\Image2.png" />
+    <Content Include="Assert\Image3.png" />
+    <Content Include="Assert\Image4.png" />
+    <Content Include="Assert\Image5.png" />
+    <Content Include="Assert\Image6.png" />
     <Content Include="Assert\last.png" />
     <Content Include="Content\Books.css" />
     <Content Include="Content\bootstrap-theme.css" />
