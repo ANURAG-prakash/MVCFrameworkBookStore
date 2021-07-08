@@ -165,7 +165,7 @@ h3 {
     width: 200px !important;
 
 }
-.Email {
+#Email {
     height: 23px!important;
     width: 250px!important;
 
@@ -174,5 +174,12 @@ h3 {
     height: 23px !important;
     width: 250px !important;
 }
+#FirstName {
+    height: 23px !important;
+    width: 250px !important;
+}
 
-
+#LastName {
+    height: 23px !important;
+    width: 250px !important;
+}

@@ -3,7 +3,20 @@
 @{
     ViewBag.Title = "Register";
 }
-
+<style>
+    #Email {
+        height: 23px !important;
+        width: 250px !important;
+    }
+    #FirstName {
+        height: 23px !important;
+        width: 250px !important;
+    }
+    #LastName {
+        height: 23px !important;
+        width: 250px !important;
+    }
+</style>
 
 
 
@@ -17,7 +30,7 @@
     <div class="BookContent">
         <div>
             <div class="BookINUP2">
-                <h4>New Customers </h4>
+                <h4 style="font-size: x-large">New Customers </h4>
                 <p>Create a new account to make future purchases even faster. </p>
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">

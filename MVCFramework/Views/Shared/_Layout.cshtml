@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/OrderPage.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Cart.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Register.css" />
-    @model CommonLayer.Models.BookModel 
+   
     <style>
         .dropbtn {
             background-color: #A03037;
@@ -45,17 +45,13 @@
                         BookStore
                     </div>
                 </div>
-                <div class="Bookstore-searchbar">
-                    @using (Html.BeginForm("Search", "Books", FormMethod.Get))
-                    {
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.BookName , new { htmlAttributes = new { @class = "form-control" } })
-                            
-                        </div>
-                    }
+               
 
-                   
-                </div>
+                    <div class="Bookstore-searchbar">
+                       <input id="TextBox1" type="text" placeholder="Search" />
+                    </div>
+
+                
                 <div class="Bookstore-Cart">
                     cart
                     <a href="https://localhost:44301/Cart/CartBooks" class="Bookstore-Cart">

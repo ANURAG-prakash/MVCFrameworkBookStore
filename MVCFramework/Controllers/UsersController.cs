@@ -67,7 +67,7 @@ namespace MVCFramework.Controllers
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 var tokenString = tokenHandler.WriteToken(token);
-                ViewBag.Message = "User login successfull";
+                ViewBag.Message = tokenString;
                 return Redirect("https://localhost:44301/Books/AllBooks");
                     
               }
