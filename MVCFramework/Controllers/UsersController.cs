@@ -9,14 +9,17 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Security.Principal;
 
 namespace MVCFramework.Controllers
 {
     public class UsersController : Controller
     {
         private readonly IUserBL userManager;
-        public UsersController(IUserBL userManager)
+        private const string Secret = "my_secret_key_12345";
+        public UsersController(IUserBL userManager )
         {
+           
             this.userManager = userManager;
         }
         // GET: Users
@@ -31,7 +34,7 @@ namespace MVCFramework.Controllers
         }
 
 
-
+        [AllowAnonymous]
         [HttpPost]
         public ActionResult Login(LoginModel login)
         {
@@ -39,23 +42,35 @@ namespace MVCFramework.Controllers
             {
                
                     var result = this.userManager.LoginUser(login);
-                    ViewBag.Message = "User login successfull";
-                    // return View();
-                    if (result == true)
+                if (result == false)
+                {
+                     ViewBag.Message = "Username or password is incorrect";
+                    return Redirect("https://localhost:44301/Users/Login");
+
+                }
+                    
+
+                var tokenHandler = new JwtSecurityTokenHandler();
+                var key = Encoding.ASCII.GetBytes(Secret);
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    Issuer = "self",
+                    Audience = "http://localhost",
+                    Subject = new ClaimsIdentity(new Claim[]
                     {
-                        return Redirect("https://localhost:44301/Books/AllBooks");
-                    }
-                    else
-                    {
-                        return Redirect("https://localhost:44301/Users/Login");
-                    }
-                
-
-
-
-
-
-            }
+                     
+                    new Claim(ClaimTypes.Email, login.Email),
+                    new Claim("ServiceType", "User"),
+                    }),
+                    Expires = DateTime.UtcNow.AddMinutes(600),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                };
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                var tokenString = tokenHandler.WriteToken(token);
+                ViewBag.Message = "User login successfull";
+                return Redirect("https://localhost:44301/Books/AllBooks");
+                    
+              }
             catch (Exception)
             {
                 return ViewBag.Message = "User login unsuccessfull";

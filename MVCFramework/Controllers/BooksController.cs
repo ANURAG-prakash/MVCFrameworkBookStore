@@ -33,6 +33,23 @@ namespace MVCFramework.Controllers
                 var result = this.booksManager.GetAllBooks();
                 return View(result);  
         }
+
+        [HttpPost]
+        public ActionResult Search(BookModel book)
+        {
+            try
+            {
+                var result = this.booksManager.Search(book);
+                return View(result);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
         [HttpPost]
         public JsonResult AddToCart(CartModel cart)
         {

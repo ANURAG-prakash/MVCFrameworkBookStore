@@ -32,5 +32,10 @@ namespace BusinessLayer.Services
         {
             return this.book.GetAllBooks();
         }
+
+        public List<BookModel> Search(BookModel bookModel)
+        {
+            return this.book.Search(bookModel);
+        }
     }
 }

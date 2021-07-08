@@ -25,13 +25,13 @@ namespace RepositoryLayer.Services
                 using (Connection)
                 {
                     string query = @"select * from [dbo].[BookModel]";
-                   
+
 
                     SqlCommand command = new SqlCommand(query, Connection);
-                   
+
                     Connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
-                   
+
                     if (dr.HasRows)
                     {
                         while (dr.Read())
@@ -45,7 +45,7 @@ namespace RepositoryLayer.Services
                                 Authors = Convert.ToString(dr["Authors"]),
                                 Arrivals = Convert.ToDateTime(dr["Arrival"]),
                                 AvailabeBooks = Convert.ToInt32(dr["Avaliablebook"]),
-                                Image= Convert.ToString(dr["Image"]),
+                                Image = Convert.ToString(dr["Image"]),
                             }
                         );
                         }
@@ -125,6 +125,50 @@ namespace RepositoryLayer.Services
             {
                 Connection.Close();
             }
+        }
+        public List<BookModel> Search(BookModel bookModel)
+        {
+            List<BookModel> BookList = new List<BookModel>();
+            try
+            {
+                using (Connection)
+                {
+                    SqlCommand command = new SqlCommand("sp_searchbook", Connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Search", bookModel.BookName);
+                   
+
+                    Connection.Open();
+                    SqlDataReader dr = command.ExecuteReader();
+
+                    if (dr.HasRows)
+                    {
+                        while (dr.Read())
+                        {
+                            BookList.Add(new BookModel
+                            {
+                                BookId = Convert.ToInt32(dr["id"]),
+                                BookName = Convert.ToString(dr["BookName"]),
+                                Price = Convert.ToInt32(dr["Price"]),
+                                Authors = Convert.ToString(dr["Authors"]),
+                                AvailabeBooks = Convert.ToInt32(dr["Avaliablebook"]),
+                                Image = Convert.ToString(dr["Image"])
+                            }
+                        );
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                Connection.Close();
+            }
+
+            return BookList;
         }
     }
 }

@@ -2,70 +2,30 @@
 <html>
 <head>
     <title>BookStore application</title>
-   
 
 
-  <link rel="stylesheet" type="text/css" href="~/Content/Login.css"/>
+
+    <link rel="stylesheet" type="text/css" href="~/Content/Login.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Header.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Books.css" />
-    <link rel="stylesheet" type="text/css" href="~/Content/OrderPage.css"/>
+    <link rel="stylesheet" type="text/css" href="~/Content/OrderPage.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Cart.css" />
     <link rel="stylesheet" type="text/css" href="~/Content/Register.css" />
+    @model CommonLayer.Models.BookModel 
     <style>
         .dropbtn {
             background-color: #A03037;
             color: white;
             border: none;
             cursor: pointer;
-            display:flex;
-            align-items:center;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-        }
-
-            /* Dropdown button on hover & focus */
-            .dropbtn:hover, .dropbtn:focus {
-                background-color: #A03037;
-            }
-
-        /* The container <div> - needed to position the dropdown content */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Dropdown Content (Hidden by Default) */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f1f1f1;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-            /* Links inside the dropdown */
-            .dropdown-content a {
-                color: black;
-                padding: 12px 16px;
-                text-decoration: none;
-                display: block;
-                background: white;
-            }
-            }
-
-                /* Change color of dropdown links on hover */
-                .dropdown-content a:hover {
-                    background-color: #ddd
-                }
-
-        /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-        .show {
-            display: block;
+            display: flex;
+            align-items: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
-   
+
 
 </head>
 <body>
@@ -86,8 +46,15 @@
                     </div>
                 </div>
                 <div class="Bookstore-searchbar">
+                    @using (Html.BeginForm("Search", "Books", FormMethod.Get))
+                    {
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.BookName , new { htmlAttributes = new { @class = "form-control" } })
+                            
+                        </div>
+                    }
 
-                    <input id="TextBox1" type="text" placeholder="Search" />
+                   
                 </div>
                 <div class="Bookstore-Cart">
                     cart

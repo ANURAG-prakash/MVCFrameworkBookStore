@@ -13,6 +13,7 @@ namespace RepositoryLayer.Interfaces
         List<BookModel> GetAllBooks();
         CartModel AddToCart(CartModel cartModel);
         WishlistModel AddToWishlist(WishlistModel wishlistModel);
+        List<BookModel> Search(BookModel bookModel);
 
     }
 }
