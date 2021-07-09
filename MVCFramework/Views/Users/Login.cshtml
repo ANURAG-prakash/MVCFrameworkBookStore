@@ -43,16 +43,17 @@
                         <div class="col-md-10">
                             @Html.PasswordFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
                             @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                           
+
                         </div>
                     </div>
                     <div class="ForgotPassword">
                         <a href="https://localhost:44368/Pages/User/Forgetpassword">Forgot Password ?</a>
                     </div>
                     <div class="Button1">
-                        <input id="Btn_First" type="submit" value="Log-In" />
+                        <input id="Btn_First" type="submit" value="Log-In" onclick="Btn_First()"/>
                     </div>
-                    
+                  
+
                 </div>
             </div>
         </div>

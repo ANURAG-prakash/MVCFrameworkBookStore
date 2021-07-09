@@ -5,6 +5,7 @@
 }
 <script src="~/Scripts/JavaScript/Books.js"></script>
 
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -57,6 +58,6 @@
 }
 
 
-    @section Scripts {
-        @Scripts.Render("~/bundles/jqueryval")
-    }
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

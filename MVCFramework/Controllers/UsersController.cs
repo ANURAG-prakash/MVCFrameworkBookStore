@@ -67,15 +67,27 @@ namespace MVCFramework.Controllers
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 var tokenString = tokenHandler.WriteToken(token);
-                ViewBag.Message = tokenString;
+                Session["Token"] = tokenString;
+                ViewBag.Token = tokenString;
+                LoginModel tokenvalue = new LoginModel()
+                {
+                    Token = tokenString
+                };
                 return Redirect("https://localhost:44301/Books/AllBooks");
-                    
-              }
+
+               // return this.View("Login", tokenvalue);
+
+
+            }
             catch (Exception)
             {
                 return ViewBag.Message = "User login unsuccessfull";
             }
            
+        }
+        public ActionResult LoginUser(LoginModel loginuser)
+        {
+            return View(loginuser);
         }
 
 

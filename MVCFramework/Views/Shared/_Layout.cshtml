@@ -81,7 +81,9 @@
                     <div id="myDropdown" class="dropdown-content">
                         <a href="#">Hello User !!</a>
                         <a href="https://localhost:44301/Users/Register"><button style=" width:100%;height:25px; color:white; background-color:#6468bb;">Register</button></a>
-                       <a href="https://localhost:44301/Users/Login"> <button  style=" width:100%; height:25px; color:white; background-color:#6468bb;">Log-in/out</button></a>
+                       <a href="https://localhost:44301/Users/Login"> <button  style=" width:100%; height:25px; color:white; background-color:#6468bb;">Log-in/out
+                             
+                             </button></a>
                     </div>
                 </div>
                 </div>
@@ -100,14 +102,10 @@
     @Scripts.Render("~/bundles/bootstrap")
    @Scripts.Render("~/Scripts/JavaScript/Books.js")
     @RenderSection("scripts", required: false)
-    <script>
-        /* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
+    <script>     
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
-
-        // Close the dropdown menu if the user clicks outside of it
         window.onclick = function (event) {
             if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -121,7 +119,13 @@ toggle between hiding and showing the dropdown content */
             }
         }
 
+        function Btn_First() {
+            
+            sessionStorage.setItem("Token",@Session["Token"]);
+            console.log(sessionStorage("Token"))
+        }
     </script>
+    
 
    
 

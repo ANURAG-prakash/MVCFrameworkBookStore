@@ -102,6 +102,3 @@ function Checkoutbtn() {
     });
 }
 
-$(document).ready(function () {
-    $('.dropdown-toggle').dropdown();
-});
