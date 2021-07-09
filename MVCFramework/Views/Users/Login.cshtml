@@ -10,11 +10,23 @@
     }
 </style>
 
+<Head>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+</Head>
+<script type="text/javascript">
+    var GetToken = function (data) {
+        alert(data.Token);
+        sessionStorage.setItem("JwtToken",data.Token )
+    };
+</script>
 
 
 
-@using (Html.BeginForm())
+
+@using (Ajax.BeginForm("Login", "Users", null, new AjaxOptions { HttpMethod = "post", OnSuccess = "GetToken", OnFailure = "HandleError" }))
 {
+    
     @Html.AntiForgeryToken()
 
     <div class="Conatiner-main">
@@ -50,9 +62,9 @@
                         <a href="https://localhost:44368/Pages/User/Forgetpassword">Forgot Password ?</a>
                     </div>
                     <div class="Button1">
-                        <input id="Btn_First" type="submit" value="Log-In" onclick="Btn_First()"/>
+                        <input id="Btn_First" type="submit" value="Log-In"  />
                     </div>
-                  
+
 
                 </div>
             </div>

@@ -36,7 +36,7 @@ namespace MVCFramework.Controllers
 
         [AllowAnonymous]
         [HttpPost]
-        public ActionResult Login(LoginModel login)
+        public JsonResult Login(LoginModel login)
         {
             try
             {
@@ -45,7 +45,11 @@ namespace MVCFramework.Controllers
                 if (result == false)
                 {
                      ViewBag.Message = "Username or password is incorrect";
-                    return Redirect("https://localhost:44301/Users/Login");
+                    return new JsonResult()
+                    {
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                        Data = new { result = "error" }
+                    };
 
                 }
                     
@@ -73,9 +77,13 @@ namespace MVCFramework.Controllers
                 {
                     Token = tokenString
                 };
-                return Redirect("https://localhost:44301/Books/AllBooks");
-
-               // return this.View("Login", tokenvalue);
+              
+                return new JsonResult()
+                {
+                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                    Data = new { result = "Sucess" , Token=tokenString ,returnUrl = "https://localhost:44301/Books/AllBooks" }
+                };
+                // return this.View("Login", tokenvalue);
 
 
             }
