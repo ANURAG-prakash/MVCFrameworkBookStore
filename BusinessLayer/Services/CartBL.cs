@@ -16,11 +16,11 @@ namespace BusinessLayer.Services
         {
             this.cartRL = _cartRL;
         }
-        public List<GetCart> CartBooks()
+        public List<GetCart> CartBooks(string email)
         {
             try
             {
-                return this.cartRL.CartBooks();
+                return this.cartRL.CartBooks(email);
             }
             catch (Exception ex)
             {
@@ -28,11 +28,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public bool Placeorder()
+        public bool Placeorder(string email)
         {
             try
             {
-                return this.cartRL.Placeorder();
+                return this.cartRL.Placeorder(email);
             }
             catch (Exception ex)
             {

@@ -11,8 +11,8 @@ namespace RepositoryLayer.Interfaces
     {
 
         List<BookModel> GetAllBooks();
-        CartModel AddToCart(CartModel cartModel);
-        WishlistModel AddToWishlist(WishlistModel wishlistModel);
+        CartModel AddToCart(CartModel cartModel , string email);
+        WishlistModel AddToWishlist(WishlistModel wishlistModel , string email);
         List<BookModel> Search(BookModel bookModel);
 
     }

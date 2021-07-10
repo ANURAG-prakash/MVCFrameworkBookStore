@@ -10,5 +10,6 @@ namespace RepositoryLayer.Interfaces
     public interface IWishlistRL
     {
         List<GetWishlist> WishlistBooks();
+        CartModel WishlistToCart(CartModel cartModel, string email);
     }
 }

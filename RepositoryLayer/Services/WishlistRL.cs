@@ -61,5 +61,36 @@ namespace RepositoryLayer.Services
 
             return BookList;
         }
+        public CartModel WishlistToCart(CartModel cartModel, string email)
+        {
+            try
+            {
+                using (Connection)
+                {
+                    SqlCommand cmd = new SqlCommand("WishlistAddtocart", Connection);
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@bookId", cartModel.BookId);
+                    cmd.Parameters.AddWithValue("@userId", 1);
+                    cmd.Parameters.AddWithValue("@quantity", cartModel.CartBookQuantity);
+                    cmd.Parameters.AddWithValue("@price", 1500);
+                    cmd.Parameters.AddWithValue("@email", "Prakash@gmail.com");
+                    Connection.Open();
+                    int i = cmd.ExecuteNonQuery();
+
+                    if (i >= 1)
+                        return cartModel;
+                    else
+                        return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                Connection.Close();
+            }
+        }
     }
 }

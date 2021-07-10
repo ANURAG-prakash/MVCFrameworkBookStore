@@ -18,14 +18,14 @@ namespace BusinessLayer.Services
             this.book = book;
         }
 
-        public CartModel AddToCart(CartModel cartModel)
+        public CartModel AddToCart(CartModel cartModel , string email)
         {
-            return this.book.AddToCart(cartModel);
+            return this.book.AddToCart(cartModel , email);
         }
 
-        public WishlistModel AddToWishlist(WishlistModel wishlistModel)
+        public WishlistModel AddToWishlist(WishlistModel wishlistModel , string email)
         {
-            return this.book.AddToWishlist(wishlistModel);
+            return this.book.AddToWishlist(wishlistModel , email);
         }
 
         public List<BookModel> GetAllBooks()

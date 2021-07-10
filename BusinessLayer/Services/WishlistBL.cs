@@ -27,5 +27,9 @@ namespace BusinessLayer.Services
                 throw ex;
             }
         }
+        public CartModel WishlistToCart(CartModel cartModel, string email)
+        {
+            return this.wishlistRL.WishlistToCart(cartModel, email);
+        }
     }
 }

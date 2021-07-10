@@ -73,25 +73,25 @@ namespace MVCFramework.Controllers
                 var tokenString = tokenHandler.WriteToken(token);
                 Session["Token"] = tokenString;
                 ViewBag.Token = tokenString;
-                LoginModel tokenvalue = new LoginModel()
-                {
-                    Token = tokenString
-                };
+               
               
                 return new JsonResult()
                 {
                     JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                    Data = new { result = "Sucess" , Token=tokenString ,returnUrl = "https://localhost:44301/Books/AllBooks" }
+                    Data = new { result = "Success" , Token = tokenString ,returnUrl = "https://localhost:44301/Books/AllBooks" }
                 };
                 // return this.View("Login", tokenvalue);
 
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return ViewBag.Message = "User login unsuccessfull";
+                return new JsonResult()
+                {
+                    Data = ex.Message
+                };
             }
-           
+
         }
         public ActionResult LoginUser(LoginModel loginuser)
         {

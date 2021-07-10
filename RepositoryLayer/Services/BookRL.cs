@@ -63,7 +63,7 @@ namespace RepositoryLayer.Services
 
             return BookList;
         }
-        public CartModel AddToCart(CartModel cartModel)
+        public CartModel AddToCart(CartModel cartModel , string email)
         {
             try
             {
@@ -95,7 +95,7 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public WishlistModel AddToWishlist(WishlistModel wishlistModel)
+        public WishlistModel AddToWishlist(WishlistModel wishlistModel , string email)
         {
             try
             {

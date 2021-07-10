@@ -18,7 +18,7 @@ namespace RepositoryLayer.Services
 
         }
 
-        public List<GetCart> CartBooks()
+        public List<GetCart> CartBooks(string email)
         {
             List<GetCart> BookList = new List<GetCart>();
 
@@ -26,8 +26,10 @@ namespace RepositoryLayer.Services
             {
                 using (Connection)
                 {
-                    string query = @"select * from [dbo].[CartModel]";
-                    SqlCommand command = new SqlCommand(query, Connection);
+                    SqlCommand command = new SqlCommand("spGetCartBook", Connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@email", "Prakash@gmail.com");
+
                     Connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
                     if (dr.HasRows)
@@ -61,7 +63,7 @@ namespace RepositoryLayer.Services
 
             return BookList;
         }
-        public bool Placeorder()
+        public bool Placeorder(string email)
         {
            
             try

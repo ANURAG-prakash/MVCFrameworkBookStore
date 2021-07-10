@@ -3,6 +3,7 @@ using CommonLayer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
 
@@ -35,9 +36,18 @@ namespace MVCFramework.Controllers
         {
             try
             {
-                var result = this.cartManager.CartBooks();
-                ViewBag.Message = "";
-                return View(result);
+                var identity = User.Identity as ClaimsIdentity;
+
+                if (identity != null)
+                {
+                    IEnumerable<Claim> claims = identity.Claims;
+                    var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
+                    var result = this.cartManager.CartBooks(email);
+                    ViewBag.Message = "";
+                    return View(result);
+                }
+                return View();
             }
             catch (Exception ex)
             {
@@ -49,16 +59,23 @@ namespace MVCFramework.Controllers
         {
             try
             {
-                var result = this.cartManager.Placeorder();
-                if (result != false)
+                var identity = User.Identity as ClaimsIdentity;
+
+
+                if (identity != null)
                 {
-                    RedirectToAction("Orderconfirm", "Order");
-                    return Json(new { code=1});
+                    IEnumerable<Claim> claims = identity.Claims;
+                    var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+                    var result = this.cartManager.Placeorder(email);
+                    if (result != false)
+                    {
+                        RedirectToAction("Orderconfirm", "Order");
+                        return Json(new { status = true, Message = "Checkout done", Data = result });
+                    }
+                   
                 }
-                else
-                {
-                    return Json(new { status = false, Message = "Checkout problem", Data = result });
-                }
+                return Json(new { status = false, Message = "Checkout problem" });
+
             }
             
             catch (Exception ex)

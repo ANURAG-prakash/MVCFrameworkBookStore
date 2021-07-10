@@ -11,6 +11,7 @@ namespace BusinessLayer.Interfaces
         public interface IWishlistBL
         {
             List<GetWishlist> WishlistBooks();
-        }
+        CartModel WishlistToCart(CartModel cartModel, string email);
+    }
     
 }
