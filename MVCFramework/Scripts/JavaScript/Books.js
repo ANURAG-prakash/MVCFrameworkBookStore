@@ -3,6 +3,7 @@
     var addToCartId = "addtoCartBtn-".concat(bookId);
     var addToWishId = "wishlistBtn-".concat(bookId);
     var addedToCartId = "addedtocartBtn-".concat(bookId);
+    var addedToWishlistId = "addedtowishlistBtn-".concat(bookId);
 
     if (sessionStorage.getItem("JwtToken") == null) {
         window.location.href = 'https://localhost:44301/Users/Login';
@@ -23,18 +24,21 @@
             dataType: "json",
             contentType: "application/json; charset=utf-8",
             success: function () {
-                //Onclick AddToCart button hide AddToCart button
+               
                 var AddToCartButton = document.getElementById(addToCartId);
                 AddToCartButton.style.display = "none";
 
-                //Onclick AddToCart button hide WishList button
+               
                 var AddToWishListButton = document.getElementById(addToWishId);
                 AddToWishListButton.style.display = "none";
 
-                //Onclick AddToCart button show AddedToCart button
+               
                 var AddedToCartButton = document.getElementById(addedToCartId);
-                AddedToCartButton.style.display = "block"
-                // alert("Data has been added successfully.");  
+                AddedToCartButton.style.display = "block";
+
+                var AddedToWishlistButton = document.getElementById(addedToWishlistId);
+                AddedToWishlistButton.style.display = "none";
+                  
 
             },
             error: function () {
@@ -116,10 +120,12 @@ function AddToWishList(bookId) {
                 var AddToWishListButton = document.getElementById(addToWishId);
                 AddToWishListButton.style.display = "none";
 
-                //Onclick AddToWishList button show WishListed button
-                var AddedToWishList = document.getElementById(addedToWishList);
-                AddedToWishList.style.display = "block"
-                // alert("Data has been added successfully.");  
+                
+                var AddedToCartButton = document.getElementById(addedToCartId);
+                AddedToCartButton.style.display = "block";
+
+                
+               
 
             },
             error: function () {
@@ -140,32 +146,60 @@ function AddToWishList(bookId) {
         }
     
 
-    function Checkoutbtn() {
-        var requestObject = {};
-        requestObject.UserId = 1;
-        console.log(JSON.stringify(requestObject));
-        if (sessionStorage.getItem("JwtToken") == null) {
-            window.location.href = 'https://localhost:44301/Users/Login';
-        } else {
-            $.ajax({
-                type: "POST",
-                url: 'https://localhost:44301/Cart/Placeorder',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
-                },
-                data: JSON.stringify(requestObject),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function () {
-                    window.location = '../Order/Orderconfirm'
-                },
-                error: function () {
-                    alert("Wrong input data");
-                }
-            });
-        }
+function Checkoutbtn() {
+    var requestObject = {};
+    requestObject.UserId = 1;
+    console.log(JSON.stringify(requestObject));
+    if (sessionStorage.getItem("JwtToken") == null) {
+        window.location.href = 'https://localhost:44301/Users/Login';
+    } else {
+        $.ajax({
+            type: "POST",
+            url: 'https://localhost:44301/Cart/Placeorder',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
+            },
+            data: JSON.stringify(requestObject),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function () {
+                window.location = '../Order/Orderconfirm'
+            },
+            error: function () {
+                alert("Wrong input data");
+            }
+        });
     }
+}
+function CartDeletebtn() {
+    var requestObject = {};
+    requestObject.UserId = 1;
+    console.log(JSON.stringify(requestObject));
+    if (sessionStorage.getItem("JwtToken") == null) {
+        window.location.href = 'https://localhost:44301/Users/Login';
+    } else {
+        $.ajax({
+            type: "POST",
+            url: 'https://localhost:44301/Cart/Placeorder',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
+            },
+            data: JSON.stringify(requestObject),
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function () {
+                window.location = '../Cart/CartBooks'
+            },
+            error: function () {
+                alert("Wrong input data");
+            }
+        });
+    }
+}
+
+
 
     
 
