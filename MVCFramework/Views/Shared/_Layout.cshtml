@@ -45,16 +45,16 @@
                         BookStore
                     </div>
                 </div>
-               
 
-                    <div class="Bookstore-searchbar">
-                       <input id="TextBox1" type="text" placeholder="Search" />
-                    </div>
 
-                
+                <div class="Bookstore-searchbar">
+                    <input id="TextBox1" type="text" placeholder="Search" />
+                </div>
+
+
                 <div class="Bookstore-Cart">
                     cart
-                    <a href="https://localhost:44301/Cart/CartBooks" class="Bookstore-Cart">
+                    <a onclick="myCartFunction()" class="Bookstore-Cart">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
                             <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                         </svg>
@@ -63,14 +63,14 @@
                 </div>
                 <div class="Bookstore-Cart">
                     Wishlist
-                    <a href="https://localhost:44301/Wishlist/WishlistBooks" class="Bookstore-Cart">
+                    <a onclick="mywishlistFunction()" class="Bookstore-Cart">
                         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-bucket" viewBox="0 0 16 16">
                             <path d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5zm1.005 0a4.5 4.5 0 0 1 8.945 0H3.527zm9.892 1-1.286 8.574a.5.5 0 0 1-.494.426H4.36a.5.5 0 0 1-.494-.426L2.58 6h10.838z" />
                         </svg>
                     </a>
 
                 </div>
-                
+
                 <div class="dropdown">
                     <button onclick="myFunction()" class="dropbtn">
                         Profile
@@ -80,13 +80,16 @@
                     </button>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="#">Hello User !!</a>
-                        <a href="https://localhost:44301/Users/Register"><button style=" width:100%;height:25px; color:white; background-color:#6468bb;">Register</button></a>
-                       <a href="https://localhost:44301/Users/Login"> <button  style=" width:100%; height:25px; color:white; background-color:#6468bb;">Log-in/out
-                             
-                             </button></a>
+                        <button onclick="Register()"style=" width:100%;height:25px; color:white; background-color:#6468bb;margin-bottom: 10px ;">Register</button>
+                        
+                            <button onclick="Logout()" style=" width:100%; height:25px; color:white; background-color:#6468bb;margin-bottom: 10px ;">
+                                Log-in/out
+
+                            </button>
+                        
                     </div>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
     <div>
@@ -100,9 +103,9 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-   @Scripts.Render("~/Scripts/JavaScript/Books.js")
+    @Scripts.Render("~/Scripts/JavaScript/Books.js")
     @RenderSection("scripts", required: false)
-    <script>     
+    <script>
         function myFunction() {
             document.getElementById("myDropdown").classList.toggle("show");
         }
@@ -119,11 +122,45 @@
             }
         }
 
-       
-    </script>
-    
 
-   
+    </script>
+    <script>
+        function mywishlistFunction() {
+            if (sessionStorage.getItem("JwtToken") == null) {
+                window.location.href = 'https://localhost:44301/Users/Login';
+            } else {
+                window.location.href = 'https://localhost:44301/Wishlist/WishlistBooks';
+            }
+        }
+    </script>
+
+    <script>
+        function myCartFunction() {
+            if (sessionStorage.getItem("JwtToken") == null) {
+                window.location.href = 'https://localhost:44301/Users/Login';
+            } else {
+                window.location.href = 'https://localhost:44301/Cart/CartBooks';
+            }
+        }
+    </script>
+    <script>
+        function Logout() {
+            if (sessionStorage.getItem("JwtToken") == null) {
+                window.location.href = 'https://localhost:44301/Users/Login';
+            } else {
+                sessionStorage.removeItem("JwtToken");
+                window.location.href = 'https://localhost:44301/Users/Login';
+            }
+        }
+    </script>
+    <script>
+        function Register() {
+            window.location.href = 'https://localhost:44301/Users/Register';
+        }
+    </script>
+
+
+
 
 </body>
 </html>

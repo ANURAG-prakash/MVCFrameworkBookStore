@@ -58,8 +58,8 @@ namespace MVCFramework.Controllers
                 var key = Encoding.ASCII.GetBytes(Secret);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    Issuer = "self",
-                    Audience = "http://localhost",
+                    Issuer = "https://localhost:44301",
+                    Audience = "https://localhost:44301",
                     Subject = new ClaimsIdentity(new Claim[]
                     {
                      

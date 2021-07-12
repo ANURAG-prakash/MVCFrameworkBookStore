@@ -27,14 +27,15 @@ namespace MVCFramework
                         ValidateAudience = true,
                         ValidateLifetime = false,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = "self",
-                        ValidAudience = "http://localhost",
+                        ValidIssuer = "http://localhost:44301",
+                        ValidAudience = "http://localhost:44301",
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Secret))
                     }
                 });
             var config = new HttpConfiguration();
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+            app.UseWebApi(config);
         }
             
         

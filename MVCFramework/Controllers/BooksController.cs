@@ -17,7 +17,7 @@ namespace MVCFramework.Controllers
             this.booksManager = booksManager;
         }
 
-        // GET: Books
+        
         public ActionResult Index()
         {
             return View();
@@ -26,7 +26,7 @@ namespace MVCFramework.Controllers
         {
             return View();
         }
-
+        
         [HttpGet]
         public ActionResult AllBooks(BookModel book)
         {
@@ -34,7 +34,7 @@ namespace MVCFramework.Controllers
                 var result = this.booksManager.GetAllBooks();
                 return View(result);  
         }
-
+        [Authorize]
         [HttpPost]
         public ActionResult Search(BookModel book)
         {
@@ -50,7 +50,7 @@ namespace MVCFramework.Controllers
 
         }
 
-
+        
         [HttpPost]
         public JsonResult AddToCart(CartModel cart)
         {
@@ -78,8 +78,8 @@ namespace MVCFramework.Controllers
             }
         }
 
-       
 
+        
         [HttpPost]
         public JsonResult AddToWishlist(WishlistModel cart )
         {

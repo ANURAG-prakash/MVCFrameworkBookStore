@@ -121,7 +121,7 @@ function AddToWishList(bookId) {
                 AddToWishListButton.style.display = "none";
 
                 
-                var AddedToCartButton = document.getElementById(addedToCartId);
+                var AddedToCartButton = document.getElementById(addedToWishList);
                 AddedToCartButton.style.display = "block";
 
                 
@@ -172,6 +172,14 @@ function Checkoutbtn() {
         });
     }
 }
+function CartButton() {
+    if (sessionStorage.getItem("JwtToken") == null) {
+        window.location.href = 'https://localhost:44301/Users/Login';
+    } else {
+        window.location.href = 'https://localhost:44301/Cart/CartBooks';
+}
+
+
 function CartDeletebtn() {
     var requestObject = {};
     requestObject.UserId = 1;
