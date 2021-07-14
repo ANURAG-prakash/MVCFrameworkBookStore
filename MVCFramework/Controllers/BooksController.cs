@@ -50,7 +50,8 @@ namespace MVCFramework.Controllers
 
         }
 
-        
+
+        [Authorize]
         [HttpPost]
         public JsonResult AddToCart(CartModel cart)
         {
@@ -62,15 +63,17 @@ namespace MVCFramework.Controllers
                 {
                     IEnumerable<Claim> claims = identity.Claims;
                     var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
+
                     var result = this.booksManager.AddToCart(cart, email);
+
                     if (result != null)
                     {
                         return Json(new { status = true, Message = "Book added to cart", Data = result });
                     }
                 }
-                
-                    return Json(new { status = false, Message = "Book not added to cart" });
-                
+
+                return Json(new { status = false, Message = "Book not added to cart" });
+
             }
             catch (Exception ex)
             {
@@ -78,10 +81,9 @@ namespace MVCFramework.Controllers
             }
         }
 
-
-        
+        [Authorize]
         [HttpPost]
-        public JsonResult AddToWishlist(WishlistModel cart )
+        public JsonResult AddToWishList(WishlistModel wishList)
         {
             try
             {
@@ -91,19 +93,19 @@ namespace MVCFramework.Controllers
                 {
                     IEnumerable<Claim> claims = identity.Claims;
                     var email = claims.Where(p => p.Type == "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress").FirstOrDefault()?.Value;
-                    var result = this.booksManager.AddToWishlist(cart , email);
+
+                    var result = this.booksManager.AddToWishlist(wishList, email);
                     if (result != null)
                     {
-                        return Json(new { status = true, Message = "Book added to Wishlist", Data = result });
+                        return Json(new { status = true, Message = "Book added to wishList", Data = result });
                     }
                 }
-               
-                    return Json(new { status = false, Message = "Book not added to Wishlist" });
-                
+
+                return Json(new { status = false, Message = "Book not added to wishList" });
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw new Exception(ex.Message);
             }
         }
 

@@ -24,8 +24,10 @@ namespace RepositoryLayer.Services
             {
                 using (Connection)
                 {
-                    string query = @"select * from [dbo].[WishlistModel]";
-                    SqlCommand command = new SqlCommand(query, Connection);
+                    SqlCommand command = new SqlCommand("spGetWishlist", Connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@UserId", 1);
+
                     Connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
                     if (dr.HasRows)
@@ -34,16 +36,14 @@ namespace RepositoryLayer.Services
                         {
                             BookList.Add(new GetWishlist
                             {
-                                BookId = Convert.ToInt32(dr["BookId"]),
+                                BookId = Convert.ToInt32(dr["id"]),
                                 Price = Convert.ToInt32(dr["Price"]),
                                 WishlistId = Convert.ToInt32(dr["id"]),
-                                UserId = Convert.ToInt32(dr["UserId"]),
-                                Quantity= Convert.ToInt32(dr["Quantity"]),
-                                BookName = Convert.ToString("Source of Dream"),
-                            }
 
-                                
-                             
+                                BookName = Convert.ToString(dr["BookName"]),
+                                Image = Convert.ToString(dr["Image"])
+
+                            }
                         );
                         }
                     }

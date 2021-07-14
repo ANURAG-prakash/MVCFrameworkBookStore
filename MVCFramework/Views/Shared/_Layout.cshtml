@@ -80,13 +80,13 @@
                     </button>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="#">Hello User !!</a>
-                        <button onclick="Register()"style=" width:100%;height:25px; color:white; background-color:#6468bb;margin-bottom: 10px ;">Register</button>
-                        
-                            <button onclick="Logout()" style=" width:100%; height:25px; color:white; background-color:#6468bb;margin-bottom: 10px ;">
-                                Log-in/out
+                        <button onclick="Register()" style=" width:100%;height:25px; color:white; background-color:#6468bb;margin-bottom: 10px ;">Register</button>
 
-                            </button>
-                        
+                        <button onclick="Logout()" style=" width:100%; height:25px; color:white; background-color:#6468bb;margin-bottom: 10px ;">
+                            Log-in/out
+
+                        </button>
+
                     </div>
                 </div>
             </div>
@@ -129,7 +129,22 @@
             if (sessionStorage.getItem("JwtToken") == null) {
                 window.location.href = 'https://localhost:44301/Users/Login';
             } else {
-                window.location.href = 'https://localhost:44301/Wishlist/WishlistBooks';
+                window.location.href = 'https://localhost:44301/Cart/CartBooks';
+                //$.ajax({
+                //    type: "GET",
+                //    url: 'https://localhost:44301/Wishlist/WishlistBooks',
+                //    headers: {
+                //        'Content-Type': 'application/json',
+                //        'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
+                //    },
+                //    dataType: "json",
+                //    success: function () {
+
+                //    },
+                //    error: function () {
+                //        //alert("Error");
+                //    }
+                //});
             }
         }
     </script>
@@ -140,6 +155,21 @@
                 window.location.href = 'https://localhost:44301/Users/Login';
             } else {
                 window.location.href = 'https://localhost:44301/Cart/CartBooks';
+                //$.ajax({
+                //    type: "GET",
+                //    url: 'https://localhost:44301/Cart/CartBooks',
+                //    headers: {
+                //        'Content-Type': 'application/json',
+                //        'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
+                //    },
+                //    dataType: "json",
+                //    success: function () {
+
+                //    },
+                //    error: function () {
+                        
+                //    }
+                //});
             }
         }
     </script>

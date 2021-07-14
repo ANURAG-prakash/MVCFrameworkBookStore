@@ -23,6 +23,7 @@
             data: JSON.stringify(requestObject),
             dataType: "json",
             contentType: "application/json; charset=utf-8",
+           
             success: function () {
                
                 var AddToCartButton = document.getElementById(addToCartId);
@@ -92,7 +93,7 @@ function WishlistToCart(bookId) {
 function AddToWishList(bookId) {
     var addToCartId = "addtoCartBtn-".concat(bookId);
     var addToWishId = "wishlistBtn-".concat(bookId);
-    var addedToWishList = "addedtocartBtn-".concat(bookId);
+    var addedToWishList = "addedtowishlistBtn-".concat(bookId);
     if (sessionStorage.getItem("JwtToken") == null) {
         window.location.href = 'https://localhost:44301/Users/Login';
     } else {
@@ -172,40 +173,43 @@ function Checkoutbtn() {
         });
     }
 }
+
 function CartButton() {
     if (sessionStorage.getItem("JwtToken") == null) {
         window.location.href = 'https://localhost:44301/Users/Login';
     } else {
         window.location.href = 'https://localhost:44301/Cart/CartBooks';
-}
-
-
-function CartDeletebtn() {
-    var requestObject = {};
-    requestObject.UserId = 1;
-    console.log(JSON.stringify(requestObject));
-    if (sessionStorage.getItem("JwtToken") == null) {
-        window.location.href = 'https://localhost:44301/Users/Login';
-    } else {
-        $.ajax({
-            type: "POST",
-            url: 'https://localhost:44301/Cart/Placeorder',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
-            },
-            data: JSON.stringify(requestObject),
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function () {
-                window.location = '../Cart/CartBooks'
-            },
-            error: function () {
-                alert("Wrong input data");
-            }
-        });
     }
 }
+
+
+    function CartDeletebtn() {
+        var requestObject = {};
+        requestObject.UserId = 1;
+        console.log(JSON.stringify(requestObject));
+        if (sessionStorage.getItem("JwtToken") == null) {
+            window.location.href = 'https://localhost:44301/Users/Login';
+        } else {
+            $.ajax({
+                type: "POST",
+                url: 'https://localhost:44301/Cart/Placeorder',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
+                },
+                data: JSON.stringify(requestObject),
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function () {
+                    window.location = '../Cart/CartBooks'
+                },
+                error: function () {
+                    alert("Wrong input data");
+                }
+            });
+        }
+    }
+
 
 
 

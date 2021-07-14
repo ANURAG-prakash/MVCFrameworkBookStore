@@ -16,5 +16,6 @@ namespace CommonLayer.Models
         public string Authors { get; set; }
         public double Price { get; set; }
         public int WishlistId { get; set; }
+        public string Image { get; set; }
     }
 }

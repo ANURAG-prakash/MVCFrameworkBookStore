@@ -18,9 +18,9 @@ namespace BusinessLayer.Services
             this.book = book;
         }
 
-        public CartModel AddToCart(CartModel cartModel , string email)
+        public CartModel AddToCart(CartModel cartModel , string Email)
         {
-            return this.book.AddToCart(cartModel , email);
+            return this.book.AddToCart(cartModel , Email);
         }
 
         public WishlistModel AddToWishlist(WishlistModel wishlistModel , string email)

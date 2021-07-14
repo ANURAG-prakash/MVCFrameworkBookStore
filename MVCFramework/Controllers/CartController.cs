@@ -11,7 +11,7 @@ namespace MVCFramework.Controllers
 {
     public class CartController : Controller
     {
-       
+
 
         private readonly ICartBL cartManager;
         public CartController(ICartBL booksManager)
@@ -20,7 +20,7 @@ namespace MVCFramework.Controllers
         }
 
 
-       
+
         // GET: Cart
         public ActionResult Index()
         {
@@ -72,12 +72,12 @@ namespace MVCFramework.Controllers
                         RedirectToAction("Orderconfirm", "Order");
                         return Json(new { status = true, Message = "Checkout done", Data = result });
                     }
-                   
+
                 }
                 return Json(new { status = false, Message = "Checkout problem" });
 
             }
-            
+
             catch (Exception ex)
             {
                 throw ex;

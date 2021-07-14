@@ -10,7 +10,7 @@ namespace BusinessLayer.Interfaces
     public interface IBookBL
     {
         List<BookModel> GetAllBooks();
-        CartModel AddToCart(CartModel cartModel , string email);
+        CartModel AddToCart(CartModel cartModel , string Email);
         WishlistModel AddToWishlist(WishlistModel wishlistModel , string email);
 
         List<BookModel> Search(BookModel bookModel);

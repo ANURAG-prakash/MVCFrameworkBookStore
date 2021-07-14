@@ -4,58 +4,7 @@
     ViewBag.Title = "AllBooks";
 }
 <script src="~/Scripts/JavaScript/Books.js"></script>
-<script>
-    function AddToCart(bookId) {
 
-        var addToCartId = "addtoCartBtn-".concat(bookId);
-        var addToWishId = "wishlistBtn-".concat(bookId);
-        var addedToCartId = "addedtocartBtn-".concat(bookId);
-        var addedToWishlistId = "addedtowishlistBtn-".concat(bookId);
-
-        if (sessionStorage.getItem("JwtToken") == null) {
-            window.location.href = 'https://localhost:44301/Users/Login';
-        } else {
-            var requestObject = {};
-            requestObject.UserId = 1;
-            requestObject.BookId = bookId;
-            requestObject.Quantity = 1;
-            console.log(JSON.stringify(requestObject));
-            $.ajax({
-                type: "POST",
-                url: 'https://localhost:44301/Books/AddToCart',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + sessionStorage.getItem("JwtToken")
-                },
-                data: JSON.stringify(requestObject),
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function () {
-
-                    var AddToCartButton = document.getElementById(addToCartId);
-                    AddToCartButton.style.display = "none";
-
-
-                    var AddToWishListButton = document.getElementById(addToWishId);
-                    AddToWishListButton.style.display = "none";
-
-
-                    var AddedToCartButton = document.getElementById(addedToCartId);
-                    AddedToCartButton.style.display = "block";
-
-                    var AddedToWishlistButton = document.getElementById(addedToWishlistId);
-                    AddedToWishlistButton.style.display = "none";
-
-
-                },
-                error: function () {
-                    alert("Error while inserting data");
-                }
-            });
-
-        }
-    }
-</script>
 
 
 @using (Html.BeginForm())

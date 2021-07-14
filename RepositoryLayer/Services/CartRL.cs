@@ -26,9 +26,9 @@ namespace RepositoryLayer.Services
             {
                 using (Connection)
                 {
-                    SqlCommand command = new SqlCommand("spGetCartBook", Connection);
+                    SqlCommand command = new SqlCommand("spGetCart", Connection);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@email", "Prakash@gmail.com");
+                    command.Parameters.AddWithValue("@UserId", 1);
 
                     Connection.Open();
                     SqlDataReader dr = command.ExecuteReader();
@@ -38,12 +38,12 @@ namespace RepositoryLayer.Services
                         {
                             BookList.Add(new GetCart
                             {
-                                BookId = Convert.ToInt32(dr["BookId"]),
+                                BookId = Convert.ToInt32(dr["id"]),
                                 Price = Convert.ToInt32(dr["Price"]),
                                 CartId =  Convert.ToInt32(dr["id"]),
-                                UserId = Convert.ToInt32(dr["UserId"]),
-                                Quantity = Convert.ToInt32(dr["Quantity"]),
-                                BookName = Convert.ToString("Source of Dream"),
+                                
+                                BookName = Convert.ToString(dr["BookName"]),
+                                Image= Convert.ToString(dr["Image"])
 
                             }
                         );

@@ -40,48 +40,46 @@ namespace MVCFramework.Controllers
         {
             try
             {
-               
-                    var result = this.userManager.LoginUser(login);
-                if (result == false)
-                {
-                     ViewBag.Message = "Username or password is incorrect";
-                    return new JsonResult()
-                    {
-                        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                        Data = new { result = "error" }
-                    };
-
-                }
-                    
-
                 var tokenHandler = new JwtSecurityTokenHandler();
                 var key = Encoding.ASCII.GetBytes(Secret);
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    Issuer = "https://localhost:44301",
-                    Audience = "https://localhost:44301",
+                    Issuer = "http://localhost:44301",
+                    Audience = "http://localhost:44301",
                     Subject = new ClaimsIdentity(new Claim[]
                     {
-                     
-                    new Claim(ClaimTypes.Email, login.Email),
-                    new Claim("ServiceType", "User"),
+                    new Claim("email", login.Email),
+                    new Claim("ServiceType", "Users"),
                     }),
-                    Expires = DateTime.UtcNow.AddMinutes(600),
+                    Expires = DateTime.UtcNow.AddMinutes(1440),
                     SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 var tokenString = tokenHandler.WriteToken(token);
-                Session["Token"] = tokenString;
+
+                var result = this.userManager.LoginUser(login);
                 ViewBag.Token = tokenString;
                
-              
-                return new JsonResult()
+                if (result == true)
                 {
-                    JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-                    Data = new { result = "Success" , Token = tokenString ,returnUrl = "https://localhost:44301/Books/AllBooks" }
-                };
-                // return this.View("Login", tokenvalue);
+                   
 
+                    return new JsonResult()
+                    {
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                        Data = new { result = "success", Token = tokenString }
+                    };
+
+                
+                }
+                else
+                {
+                    return new JsonResult()
+                    {
+                        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
+                        Data = new { result = "failure" }
+                    };
+                }
 
             }
             catch (Exception ex)

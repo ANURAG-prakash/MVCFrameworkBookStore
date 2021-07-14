@@ -17,5 +17,6 @@ namespace CommonLayer.Models
         public int UserId { get; set; }
         [Required]
         public int CartBookQuantity { get; set; }
+       
     }
 }

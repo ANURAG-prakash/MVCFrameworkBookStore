@@ -76,6 +76,8 @@ namespace RepositoryLayer.Services
                     cmd.Parameters.AddWithValue("@quantity", cartModel.CartBookQuantity);
                     cmd.Parameters.AddWithValue("@price", 1500);
                     cmd.Parameters.AddWithValue("@email", "Prakash@gmail.com");
+                   
+
                     Connection.Open();
                     int i = cmd.ExecuteNonQuery();
 
@@ -108,6 +110,8 @@ namespace RepositoryLayer.Services
                     cmd.Parameters.AddWithValue("@quantity", wishlistModel.Quantity);
                     cmd.Parameters.AddWithValue("@price", 1500);
                     cmd.Parameters.AddWithValue("@email", "Prakash@gmail.com");
+
+
                     Connection.Open();
                     int i = cmd.ExecuteNonQuery();
 
